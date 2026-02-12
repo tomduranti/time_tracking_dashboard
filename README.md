@@ -10,7 +10,7 @@ This is a Time tracking dashboard where users can:
 
 ### Screenshot
 
-![](./_resources/time_tracing_demo.gif)
+![](./resources/time_tracing_demo.gif)
 
 ### Links
 
