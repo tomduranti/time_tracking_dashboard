@@ -1,0 +1,257 @@
+@use "../abstract/mixins" as m;
+@use "../abstract/variables" as var;
+@use "../abstract/functions" as func;
+@use "sass:map";
+
+body {
+    background-color: var.$navy--950;
+}
+
+.page_wrapper {
+    display: block;
+    inline-size: fit-content;
+    min-block-size: 100vh;
+    margin-inline: auto;
+    align-content: center;
+}
+
+.report_summary {
+    background-color: var.$navy--900;
+    border-radius: inherit;
+
+    &__avatar_info {
+        background-color: var.$purple--600;
+        border-radius: inherit;
+        display: flex;
+        align-items: center;
+        gap: map.get(var.$spacing, 24);
+        padding: map.get(var.$spacing, 32) map.get(var.$spacing, 32) 2.313rem 2.25rem;
+
+        @include mix.respond_to(min, m_screen) {
+            padding: 2.156rem 20.18rem 2.156rem map.get(var.$spacing, 32); //magic number to follow design
+        }
+
+        @include mix.respond_to(min, l_screen) {
+            flex-direction: column;
+            align-items: start;
+            gap: map.get(var.$spacing, 40);
+            padding: map.get(var.$spacing, 16) 2.5rem 5.75rem map.get(var.$spacing, 32);
+        }
+    }
+
+    &__avatar_details {
+        display: flex;
+        flex-direction: column;
+        gap: map.get(var.$spacing, 8);
+    }
+
+    .avatar_name {
+
+        //updates font-size and line-height
+        @include mix.respond_to(min, m_screen) {
+            font-size: func.to_rem(40);
+            line-height: 1.17;
+        }
+    }
+
+    &__avatar_img {
+        inline-size: 4rem;
+        block-size: 4rem;
+        border-radius: map.get(var.$border_radius, circle);
+        border: .188rem solid var.$white;
+        box-shadow: 0 4px 4px hsl(0 0% 0% / 0.25);
+
+        @include mix.respond_to(min, l_screen) {
+            inline-size: 4.875rem;
+            block-size: 4.875rem;
+            gap: map.get(var.$spacing, 40);
+        }
+    }
+
+    &__time_range {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: calc(map.get(var.$spacing, 40) + map.get(var.$spacing, 8));
+        padding-block-start: map.get(var.$spacing, 24);
+        padding-block-end: 1.563rem; //magic number to follow design
+
+        &>*:hover,
+        &>*:focus-visible,
+        &>*:focus {
+            color: var.$white;
+            @include mix.transition(color .3s ease);
+        }
+
+        @include mix.respond_to(min, m_screen) {
+            gap: 4rem;
+        }
+
+        @include mix.respond_to(min, l_screen) {
+            flex-direction: column;
+            gap: 1.313rem;
+            padding-block-start: 1.75rem; //magic number to follow design
+            padding-block-end: 1.75rem; //magic number to follow design
+            padding-inline-start: map.get(var.$spacing, 32);
+        }
+    }
+}
+
+.item {
+    border-radius: inherit;
+    padding-block-start: 2.375rem; //magic number to follow design
+
+    &:hover &__container {
+        background-color: var.$navy--800;
+    }
+
+    @include mix.respond_to(min, m_screen) {
+        padding-block-start: 2.063rem; //magic number to follow design
+    }
+
+    @include mix.respond_to(min, m_screen) {
+        padding-block-start: 2.813rem; //magic number to follow design
+    }
+
+    &__container {
+        background-color: var.$navy--900;
+        border-radius: inherit;
+        padding: 1.719rem map.get(var.$spacing, 24);
+        //to stop pixel bleeding over the navy-colored padding
+        box-shadow: 0 0 0 .1px var.$navy--900;
+        @include mix.transition(background-color .3s ease);
+
+        @include mix.respond_to(min, m_screen) {
+            padding: 1.594rem 1.344rem;
+        }
+
+        @include mix.respond_to(min, l_screen) {
+            padding: 2rem 2.031rem;
+        }
+    }
+
+    &__header {
+        margin-block-end: .469rem; //magic number to follow design
+
+        @include mix.respond_to(min, m_screen) {
+            @include mix.spacing(margin-block-end, 200);
+        }
+
+        @include mix.respond_to(min, l_screen) {
+            @include mix.spacing(margin-block-end, 300);
+        }
+    }
+
+    &__header,
+    &__body {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap; //to accomodate for extremely long numbers
+    }
+
+    &__body {
+        @include mix.respond_to(min, m_screen) {
+            flex-direction: column;
+            @include mix.spacing(gap, 100);
+            align-items: start;
+        }
+    }
+
+    .current_hours {
+
+        //updates font-size and line-height
+        @include mix.respond_to(min, m_screen) {
+            font-size: map.get(var.$fs, 56);
+            line-height: 1.178;
+        }
+    }
+}
+
+
+.work {
+    background: var.$orange url("../assets/icon_work.svg") no-repeat 93.5% -14%;
+
+    @include mix.respond_to(min, m_screen) {
+        background-size: 58px 58px; //magic number to follow design
+        background-position: 93.5% -4%;
+    }
+
+    @include mix.respond_to(min, l_screen) {
+        background-size: 78px 78px; //magic number to follow design
+    }
+}
+
+.play {
+    background: var.$blue url("../assets/icon_play.svg") no-repeat 93.5% -14%;
+
+    @include mix.respond_to(min, m_screen) {
+        background-size: 58px 58px; //magic number to follow design
+        background-position: 90% -2%;
+    }
+
+    @include mix.respond_to(min, l_screen) {
+        background-size: 90px 90px; //magic number to follow design
+        background-position: 90% -5%;
+    }
+}
+
+.study {
+    background: var.$pink url("../assets/icon_study.svg") no-repeat 93.5% -8%;
+
+    @include mix.respond_to(min, m_screen) {
+        background-size: 58px 58px; //magic number to follow design
+        background-position: 90% -2%;
+    }
+
+    @include mix.respond_to(min, l_screen) {
+        background-size: 78px 78px; //magic number to follow design
+        background-position: 90% -2%;
+    }
+}
+
+.exercise {
+    background: var.$green url("../assets/icon_exercise.svg") no-repeat 93.5% -1%;
+
+    @include mix.respond_to(min, m_screen) {
+        background-size: 58px 40px; //magic number to follow design
+        background-position: 90% 0;
+    }
+
+    @include mix.respond_to(min, l_screen) {
+        background-size: 80px 54px; //magic number to follow design
+        background-position: 90% 0;
+    }
+}
+
+.social {
+    background: var.$purple--700 url("../assets/icon_social.svg") no-repeat 93.5% -25%;
+
+    @include mix.respond_to(min, m_screen) {
+        background-size: 54px 73px; //magic number to follow design
+        background-position: 95% -7%;
+    }
+
+    @include mix.respond_to(min, l_screen) {
+        background-size: 74px 100px; //magic number to follow design
+        background-position: 90% -10%;
+    }
+}
+
+.self_care {
+    background: var.$yellow url("../assets/icon_self_care.svg") no-repeat 93.5% -12%;
+
+    @include mix.respond_to(min, m_screen) {
+        background-size: 54px 48px; //magic number to follow design
+        background-position: 89% -5%;
+    }
+
+    @include mix.respond_to(min, l_screen) {
+        background-size: 72px 66px; //magic number to follow design
+        background-position: 90% -5%;
+    }
+}
+
+.ellipsis_icon {
+    cursor: pointer;
+}

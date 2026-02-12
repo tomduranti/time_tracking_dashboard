@@ -1,0 +1,41 @@
+@use "./functions" as func;
+
+//COLORS
+$black: hsl(0deg, 0%, 0%);
+$black--bg: hsl(0deg, 0%, 12%);
+$blue: hsl(195deg, 74%, 62%);
+$green: hsl(145deg, 58%, 55%);
+$grey: hsl(0deg, 0%, 85%);
+$navy--200: hsl(236deg, 100%, 87%);
+$navy--800: hsl(235deg, 41%, 34%);
+$navy--900: hsl(235deg, 46%, 20%);
+$navy--950: hsl(226deg, 43%, 10%);
+$orange: hsl(15deg, 100%, 70%);
+$pink: hsl(348deg, 100%, 68%);
+$purple--500: hsl(235deg, 45%, 61%);
+$purple--600: hsl(246deg, 80%, 60%);
+$purple--700: hsl(264deg, 64%, 52%);
+$white: hsl(0deg, 100%, 100%);
+$yellow: hsl(43deg, 84%, 65%);
+
+//TYPOGRAPHY
+$font_family: "Rubik", sans-serif;
+
+//SPACING
+$base_spacing_unit: func.to_rem(8);
+$spacing: (
+    0: 0,
+    8: func.to_rem(8),
+    16: func.to_rem(16),
+    24: func.to_rem(24),
+    32: func.to_rem(32),
+    40: func.to_rem(40),
+    48: func.to_rem(48),
+);
+
+//BORDER
+$base_radius_unit: .188rem; // 3px
+$border_radius: (
+    15: $base_radius_unit * 5,
+    circle: 50%,
+);

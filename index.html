@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+    <html lang="en">
+
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300..900&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="css/reset_min.css">
+            <link rel="stylesheet" href="css/main_min.css">
+            <script src="js/main.js" type="module"></script>
+            <title>Time tracking dashboard</title>
+            <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+        </head>
+
+        <body>
+            <div class="page_wrapper">
+
+                <header></header>
+
+                <main>
+
+                    <section class="grid">
+                        <div class="report_summary">
+                            <div class="report_summary__avatar_info">
+                                <img class="report_summary__avatar_img" src="assets/avatar_jeremy.jpg" alt="avatar image">
+                                <div class="report_summary__avatar_details">
+                                    <span class="text_preset_6">Report for</span>
+                                    <h2 class="avatar_name text_preset_4" id="avatar_name">Jeremy Robson</h2>
+                                </div>
+                            </div>
+                            <div class="report_summary__time_range">
+                                <button class="period_selectors text_preset_5--regular" aria-pressed="false"
+                                    aria-label="Show daily statistics" type="button" data-timeframe="daily">Daily</button>
+                                <button class="period_selectors text_preset_5--regular" aria-pressed="false"
+                                    aria-label="Show weekly statistics" type="button" id="default_data_onload"
+                                    data-timeframe="weekly">Weekly</button>
+                                <button class="period_selectors text_preset_5--regular" aria-pressed="false"
+                                    aria-label="Show monthly statistics" type="button" data-timeframe="monthly">Monthly</button>
+                            </div>
+                        </div>
+
+                        <div class="work item" data-activity="work">
+                            <div class="item__container">
+                                <div class="item__header">
+                                    <h3 class="text_preset_5--medium">Work</h3>
+                                    <button class="ellipsis_icon" type="button">
+                                        <img src="assets/icon_ellipsis.svg" alt="ellipsis icon">
+                                    </button>
+                                </div>
+                                <div class="item__body">
+                                    <span class="current_hours text_preset_3"></span>
+                                    <span class="text_preset_6">
+                                        <span class="previous_hours"></span> - <span class="previous_events"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="play item" data-activity="play">
+                            <div class="item__container">
+                                <div class="item__header">
+                                    <h3 class="text_preset_5--medium">Play</h3>
+                                    <button class="ellipsis_icon" type="button">
+                                        <img src="assets/icon_ellipsis.svg" alt="ellipsis icon">
+                                    </button>
+                                </div>
+                                <div class="item__body">
+                                    <span class="current_hours text_preset_3"></span>
+                                    <span class="text_preset_6">
+                                        <span class="previous_hours"></span> - <span class="previous_events"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="study item" data-activity="study">
+                            <div class="item__container">
+                                <div class="item__header">
+                                    <h3 class="text_preset_5--medium">Study</h3>
+                                    <button class="ellipsis_icon" type="button">
+                                        <img src="assets/icon_ellipsis.svg" alt="ellipsis icon">
+                                    </button>
+                                </div>
+                                <div class="item__body">
+                                    <span class="current_hours text_preset_3"></span>
+                                    <span class="text_preset_6">
+                                        <span class="previous_hours"></span> - <span class="previous_events"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="exercise item" data-activity="exercise">
+                            <div class="item__container">
+                                <div class="item__header">
+                                    <h3 class="text_preset_5--medium">Exercise</h3>
+                                    <button class="ellipsis_icon" type="button">
+                                        <img src="assets/icon_ellipsis.svg" alt="ellipsis icon">
+                                    </button>
+                                </div>
+                                <div class="item__body">
+                                    <span class="current_hours text_preset_3"></span>
+                                    <span class="text_preset_6">
+                                        <span class="previous_hours"></span> - <span class="previous_events"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="social item" data-activity="social">
+                            <div class="item__container">
+                                <div class="item__header">
+                                    <h3 class="text_preset_5--medium">Social</h3>
+                                    <button class="ellipsis_icon" type="button">
+                                        <img src="assets/icon_ellipsis.svg" alt="ellipsis icon">
+                                    </button>
+                                </div>
+                                <div class="item__body">
+                                    <span class="current_hours text_preset_3"></span>
+                                    <span class="text_preset_6">
+                                        <span class="previous_hours"></span> - <span class="previous_events"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="self_care item" data-activity="self care">
+                            <div class="item__container">
+                                <div class="item__header">
+                                    <h3 class="text_preset_5--medium">Self Care</h3>
+                                    <button class="ellipsis_icon" type="button">
+                                        <img src="assets/icon_ellipsis.svg" alt="ellipsis icon">
+                                    </button>
+                                </div>
+                                <div class="item__body">
+                                    <span class="current_hours text_preset_3"></span>
+                                    <span class="text_preset_6">
+                                        <span class="previous_hours"></span> - <span class="previous_events"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </section>
+
+                </main>
+
+                <footer></footer>
+
+            </div>
+        </body>
+
+    </html>

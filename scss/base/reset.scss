@@ -1,0 +1,28 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+ a {
+    font-size: 100%;
+    vertical-align: baseline;
+    text-decoration: none;
+  }
+  
+  img, picture, video, canvas, svg {
+    display: inline-block;
+    max-inline-size: 100%;
+  }
+
+  ul {
+    list-style: none;
+    line-height: 0;
+  }
+  
+  input, button, textarea, select, a {
+    font: inherit;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }

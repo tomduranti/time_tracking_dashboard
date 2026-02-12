@@ -1,0 +1,41 @@
+@use "./variables" as v;
+@use "sass:list";
+@use "sass:map";
+
+@mixin typography($font_family, $font_size: 16, $font_weight: 400, $line_height: null, $letter_spacing: 0, $color: var.$black) {
+    font-family: $font_family;
+    font-size: $font_size;
+    font-weight: $font_weight;
+    line-height: $line_height;
+    letter-spacing: $letter_spacing;
+    color: $color;
+}
+
+@mixin transition($prop...) {
+    @media (prefers-reduced-motion: no-preference) {
+        transition: $prop;
+    }
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+    }
+}
+
+@mixin respond_to($minmax, $media) {
+    @if $media ==l_screen {
+        @media screen and (#{$minmax}-width: func.to_rem(1440)) {
+            @content;
+        }
+    }
+
+    @else if $media ==m_screen {
+        @media screen and (#{$minmax}-width: func.to_rem(768)) {
+            @content;
+        }
+    }
+
+    @else if $media ==s_screen {
+        @media screen and (#{$minmax}-width: func.to_rem(375)) {
+            @content;
+        }
+    }
+}

@@ -1,0 +1,14 @@
+@use "../abstract/variables" as var;
+@use "../abstract/mixins" as mix;
+@use "../abstract/functions" as func;
+@use "sass:map";
+
+$presets: (
+    3: (var.$font_family, func.to_rem(32), 300, 1.1875, 0, var.$white),
+    4: (var.$font_family, func.to_rem(24), 300, 1.16, 0, var.$white),
+    5--medium: (var.$font_family, func.to_rem(18), 500, 1.16, 0, var.$white),
+    5--regular: (var.$font_family, func.to_rem(18), 400, 1.16, 0, var.$purple--500),
+    6: (var.$font_family, func.to_rem(15), 400, 1.2, 0, var.$navy--200),
+);
+
+@each $key, $value in $presets { .text_preset_#{$key} { @include mix.typography($value... ) }; }

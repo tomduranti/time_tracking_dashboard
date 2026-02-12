@@ -1,0 +1,5 @@
+//disables :focus-visible ring on initial page load
+.js_focus_visible.js_focus_visible {
+    outline: none;
+    box-shadow: none;
+}
