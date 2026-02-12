@@ -12,7 +12,12 @@ body {
     inline-size: fit-content;
     min-block-size: 100vh;
     margin-inline: auto;
+    margin-block: map.get(var.$spacing, 24); //just to add some space in mobile design
     align-content: center;
+
+    @include mix.respond_to(min, m_screen) {
+        margin-block: 0;
+    }
 }
 
 .report_summary {
