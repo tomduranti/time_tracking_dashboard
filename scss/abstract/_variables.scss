@@ -22,7 +22,6 @@ $yellow: hsl(43deg, 84%, 65%);
 $font_family: "Rubik", sans-serif;
 
 //SPACING
-$base_spacing_unit: func.to_rem(8);
 $spacing: (
     0: 0,
     8: func.to_rem(8),

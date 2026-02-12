@@ -1,14 +1,14 @@
-@use "../abstract/mixins" as m;
-@use "../abstract/variables" as v;
+@use "../abstract/mixins" as mix;
+@use "../abstract/variables" as var;
 @use "sass:map";
 
 .grid {
     display: grid;
     grid-template-columns: clamp(18.75rem, 87.2vw, 28.125rem); //pme column that expands at a reasonable length
-    @include m.spacing(gap, 300);
+    gap: map.get(var.$spacing, 24);
     border-radius: .938rem;
 
-    @media screen and (min-width: map.get(v.$breakpoint, m_screen)) {
+    @include mix.respond_to(min, m_screen) {
         grid-template-columns: repeat(3, minmax(clamp(11.25rem, 24.2vw, 31.25rem), 1fr));
 
         &> :first-child {
@@ -16,9 +16,9 @@
         }
     }
 
-    @media screen and (min-width: map.get(v.$breakpoint, l_screen)) {
+    @include mix.respond_to(min, l_screen) {
         grid-template-columns: repeat(4, clamp(12.5rem, 17.72vw, 50rem));
-        @include m.spacing(gap, 400);
+        gap: map.get(var.$spacing, 32);
 
         &> :first-child {
             grid-column: 1 / 2;

@@ -6,8 +6,9 @@
 $presets: (
     3: (var.$font_family, func.to_rem(32), 300, 1.1875, 0, var.$white),
     4: (var.$font_family, func.to_rem(24), 300, 1.16, 0, var.$white),
-    5--medium: (var.$font_family, func.to_rem(18), 500, 1.16, 0, var.$white),
-    5--regular: (var.$font_family, func.to_rem(18), 400, 1.16, 0, var.$purple--500),
+    //as of Feb 2026, using double hypen seems to break the interpolation logic of sass compiler, ref https://github.com/glenn2223/vscode-live-sass-compiler/issues/428
+    5__medium: (var.$font_family, func.to_rem(18), 500, 1.16, 0, var.$white), 
+    5__regular: (var.$font_family, func.to_rem(18), 400, 1.16, 0, var.$purple--500),
     6: (var.$font_family, func.to_rem(15), 400, 1.2, 0, var.$navy--200),
 );
 

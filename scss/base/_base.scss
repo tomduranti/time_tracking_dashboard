@@ -1,4 +1,4 @@
-@use "../abstract/mixins" as m;
+@use "../abstract/mixins" as mix;
 @use "../abstract/variables" as var;
 @use "../abstract/functions" as func;
 @use "sass:map";
@@ -84,14 +84,14 @@ body {
         }
 
         @include mix.respond_to(min, m_screen) {
-            gap: 4rem;
+            gap: calc(map.get(var.$spacing, 32) * 2);
         }
 
         @include mix.respond_to(min, l_screen) {
             flex-direction: column;
             gap: 1.313rem;
-            padding-block-start: 1.75rem; //magic number to follow design
-            padding-block-end: 1.75rem; //magic number to follow design
+            padding-block-start: calc(map.get(var.$spacing, 24) + map.get(var.$spacing, 8) / 2);
+            padding-block-end: calc(map.get(var.$spacing, 24) + map.get(var.$spacing, 8) / 2);
             padding-inline-start: map.get(var.$spacing, 32);
         }
     }
@@ -126,7 +126,7 @@ body {
         }
 
         @include mix.respond_to(min, l_screen) {
-            padding: 2rem 2.031rem;
+            padding: map.get(var.$spacing, 32) 2.031rem;
         }
     }
 
@@ -134,11 +134,11 @@ body {
         margin-block-end: .469rem; //magic number to follow design
 
         @include mix.respond_to(min, m_screen) {
-            @include mix.spacing(margin-block-end, 200);
+            margin-block-end: map.get(var.$spacing, 16);
         }
 
         @include mix.respond_to(min, l_screen) {
-            @include mix.spacing(margin-block-end, 300);
+            margin-block-end: map.get(var.$spacing, 24);
         }
     }
 
@@ -153,8 +153,8 @@ body {
     &__body {
         @include mix.respond_to(min, m_screen) {
             flex-direction: column;
-            @include mix.spacing(gap, 100);
             align-items: start;
+            gap: map.get(var.$spacing, 8);
         }
     }
 
@@ -162,7 +162,7 @@ body {
 
         //updates font-size and line-height
         @include mix.respond_to(min, m_screen) {
-            font-size: map.get(var.$fs, 56);
+            font-size: func.to_rem(56);
             line-height: 1.178;
         }
     }
